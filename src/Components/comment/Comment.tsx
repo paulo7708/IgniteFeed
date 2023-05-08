@@ -2,6 +2,7 @@ import { ThumbsUp, Trash } from "@phosphor-icons/react";
 import style from "./Comment.module.css";
 import image from "../../assets/cracha3.png";
 import { Avatar } from "../avatar/Avatar";
+import { useState } from 'react';
 
 interface Comm {
   key: string | number
@@ -12,7 +13,11 @@ interface Comm {
 }
 
 export const Comment = (props: Comm) => {
+  const [like, setLike] = useState(0);
 
+  function handleLike() {
+    return setLike(like +1)
+  }
   function handleDeleteComment(){
     console.log('deletar')
 
@@ -26,18 +31,18 @@ export const Comment = (props: Comm) => {
           <h3>{props.name}</h3>
           <p>{props.cargo}</p>
         </div>
-        <button type="button" onClick={handleDeleteComment} title="Deletar comment">
+        <button className="trash" onClick={handleDeleteComment} title="Deletar comment">
           <Trash size={20} />
         </button>
         <div className="comment">
           <p>{props.content}</p> 👋
         </div>
       </div>
-      <div className={style.like}>
+      <button onClick={handleLike} className={style.like}>
         <ThumbsUp />
         <p>Aplaudir</p>
-        <p>. 03</p>
-      </div>
+        <p>{like}</p>
+      </button>
     </div>
   );
 };

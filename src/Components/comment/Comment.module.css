@@ -26,7 +26,6 @@
 }
 
 
-
 .head button {
   background: transparent;
   border: 0;
@@ -56,4 +55,6 @@
   margin-left: 5rem;
   width: 10rem;
   gap: 0.5rem;
+  background-color: var(--gray-700);
+  border: none;
 }

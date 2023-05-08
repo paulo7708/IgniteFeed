@@ -90,10 +90,11 @@ export const Post = (props: User) => {
           setNewComment(event.target.value)
         }}
         value={newComment}
+        required
         />
 
         <footer>
-          <button type="submit">
+          <button className={style.publicarButton} type="submit" disabled={newComment.length === 0}>
             Publicar
           </button>
         </footer>
