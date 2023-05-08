@@ -1,0 +1,59 @@
+.content{
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  align-items: left;
+  background-color: var(--gray-700);
+  border-radius: 10px;
+  gap: 1rem;
+  padding-top: 2rem;
+}
+
+.head {
+  display: grid;
+  grid-template-columns: 800px 1fr;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  gap: 0.5rem;
+}
+
+.head p {
+  opacity: 40%;
+}
+
+.content hr {
+  opacity: 10%;
+}
+
+
+
+.head button {
+  background: transparent;
+  border: 0;
+  color: var(--gray-800);
+  margin-left: auto;
+  width: auto;
+}
+
+.head button:hover {
+  color: red;
+  background-color: transparent;
+  border: none;
+}
+
+
+.content input{
+  padding: 2rem;
+  border-radius: 8px;
+  border-color: var(--green-500);
+  background-color: #121214;
+  color: #fff;
+}
+
+.like {
+  display: flex;
+  flex-direction: row;
+  margin-left: 5rem;
+  width: 10rem;
+  gap: 0.5rem;
+}

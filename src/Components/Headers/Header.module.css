@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  justify-content: center;
+  padding: 1.25rem 0;
+  gap: 1rem;
+  background: var(--gray-700);
+  font-size: 1.5rem;
+}
+
+.header img{
+  height: 2.2rem;
+}
+
+@media (max-width: 700px) {
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}

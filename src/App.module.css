@@ -1,0 +1,16 @@
+.layout {
+  margin: 2rem auto;
+  width: 70rem;
+
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  padding: 1rem;
+  align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
