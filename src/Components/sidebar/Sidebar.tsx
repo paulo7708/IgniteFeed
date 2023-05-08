@@ -7,8 +7,8 @@ export const Sidebar = () => {
   return (
     <div className={style.sidebar}>
       <Avatar hasBorder={true} image={image} />
-      <h3>Leslei Alexandre</h3>
-      UI Designer
+      <h3>Paulo Henrique</h3>
+      Designer Engineering
       <hr />
       <a href="#">
         <PencilSimpleLine />

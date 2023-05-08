@@ -12,37 +12,48 @@ interface User {
 }
 
 export const Post = (props: User) => {
+  const [count, setCount] = useState(3)
   const [newComment, setNewComment] = useState('')
   const [comments, setComments] = useState([
     {
       id: 1,
       name: "Henry",
       cargo: "Dev Node",
-      comment: "Hello brother and sister, i love you, thank you so much",
+      content: "Hello brother and sister, i love you, thank you so much",
     },
     {
       id: 2,
       name: "Paulo",
       cargo: "Dev React",
-      comment: "Hello brothers",
+      content: "Hello brothers",
     },
   ]);
 
   function HandleNewComment() {
     event?.preventDefault();
 
-
     setComments([
       ...comments,
       {
-        id: 3,
+        id: count,
         name: "Henryque",
-        cargo: "Dev React",
-        comment: newComment,
-      },
+        cargo: "Dev Typescript",
+        content: newComment,
+      },      
     ]);
     setNewComment('')
+    setCount(count +1)
+    //console.log(count)
   }
+
+  function deleteComment(commentToDelete: string) {
+    const commentsWithoutDeleteOne = comments.filter( comment => {
+      return comment.content !== commentToDelete;
+    })
+
+    setComments(commentsWithoutDeleteOne)
+  }
+
 
   const str = Object.values(props.content);
   return (
@@ -60,10 +71,10 @@ export const Post = (props: User) => {
 
       {str.map((line) => {
         if (line.type === "paragraph") {
-          return <p>{line.content}</p>;
+          return <p key={line.content}>{line.content}</p>;
         } else if (line.type === "link") {
           return (
-            <p>
+            <p key={line.content}>
               <a href="#">{line.content}</a>
             </p>
           );
@@ -91,9 +102,11 @@ export const Post = (props: User) => {
       {comments.map((comment) => {
         return (
           <Comment
+            key={comment.id}
             name={comment.name}
             cargo={comment.cargo}
-            comment={comment.comment}
+            content={comment.content}
+            onDeleteComment={deleteComment}
           />
         );
       })}

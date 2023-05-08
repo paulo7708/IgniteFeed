@@ -4,12 +4,20 @@ import image from "../../assets/cracha3.png";
 import { Avatar } from "../avatar/Avatar";
 
 interface Comm {
+  key: string | number
   name: string;
   cargo: string;
-  comment: string;
+  content: string;
+  onDeleteComment: Function;
 }
 
 export const Comment = (props: Comm) => {
+
+  function handleDeleteComment(){
+    console.log('deletar')
+
+    props.onDeleteComment(props.content)
+  }
   return (
     <div className={style.content}>
       <Avatar hasBorder={false} image={image} />
@@ -18,11 +26,11 @@ export const Comment = (props: Comm) => {
           <h3>{props.name}</h3>
           <p>{props.cargo}</p>
         </div>
-        <button title="Deletar comment">
+        <button type="button" onClick={handleDeleteComment} title="Deletar comment">
           <Trash size={20} />
         </button>
         <div className="comment">
-          <p>{props.comment}</p> 👋
+          <p>{props.content}</p> 👋
         </div>
       </div>
       <div className={style.like}>
