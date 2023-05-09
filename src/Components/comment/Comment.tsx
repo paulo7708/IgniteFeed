@@ -15,9 +15,6 @@ interface Comm {
 export const Comment = (props: Comm) => {
   const [like, setLike] = useState(0);
 
-  function handleLike() {
-    return setLike(like +1)
-  }
   function handleDeleteComment(){
     console.log('deletar')
 
@@ -38,7 +35,7 @@ export const Comment = (props: Comm) => {
           <p>{props.content}</p> 👋
         </div>
       </div>
-      <button onClick={handleLike} className={style.like}>
+      <button onClick={() => setLike(like +1)} className={style.like}>
         <ThumbsUp />
         <p>Aplaudir</p>
         <p>{like}</p>
